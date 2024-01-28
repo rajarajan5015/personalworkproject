@@ -1,0 +1,213 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.nri.com/igv" xmlns="http://www.nri.com/igv"
+	elementFormDefault="qualified">
+	
+	
+	
+	<xs:element name="Message">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Body" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="Body">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="TransactionReferenceNo" />
+				<xs:element ref="MovementId" />
+				<xs:element ref="MovementBasis" />
+				<xs:element ref="MovementDate" />
+				<xs:element ref="TransactionType" />
+				<xs:element ref="AccountNo" />
+				<xs:element ref="Currency" />
+				<xs:element ref="Amount" />
+				<xs:element ref="Description"/>
+				<xs:element ref="Reason" minOccurs="0"/>
+				<xs:element ref="SubAccountType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="TransactionReferenceNo">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="22" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	
+	<xs:element name="MovementId">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="22" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	
+	<xs:element name="MovementBasis">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="TRADE DATE" />
+				<xs:enumeration value="SETTLEMENT DATE" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	
+	<xs:element name="MovementDate" type="xs:date"/>
+	
+	<xs:element name="TransactionType">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="CAM_HOLDING_ADJ"/>
+				<xs:enumeration value="CASH_IN"/>
+				<xs:enumeration value="CASH_OUT"/>
+				<xs:enumeration value="COMP_ADJUSTED_SETTLEMENT"/>
+				<xs:enumeration value="COMP_CA_ACCRUAL"/>
+				<xs:enumeration value="COMP_CLIENT_PAY_RECEIVE"/>
+				<xs:enumeration value="COMP_CUSTODY_INSTRUCTION"/>
+				<xs:enumeration value="COMP_SECURITY_TRADE"/>
+				<xs:enumeration value="COMP_SLR_TRADE"/>
+				<xs:enumeration value="CONTRA_COMP_CLIENT_PAY_RECEIVE"/>
+				<xs:enumeration value="CONTRA_COMP_CUSTODY_INSTRUCTION"/>
+				<xs:enumeration value="CONTRA_COMP_SECURITY_TRADE"/>
+				<xs:enumeration value="CONTRA_COMP_SLR_TRADE"/>
+				<xs:enumeration value="CUSTODY_INSTRUCTION"/>
+				<xs:enumeration value="DRV_NET_ADJUSTMENT_IN"/>
+				<xs:enumeration value="DRV_NET_ADJUSTMENT_OUT"/>
+				<xs:enumeration value="DRV_NET_FINAL_SETTLEMENT"/>
+				<xs:enumeration value="DRV_NET_TRADE"/>
+				<xs:enumeration value="DRV_NET_TRANSFER_IN"/>
+				<xs:enumeration value="DRV_NET_TRANSFER_OUT"/>
+				<xs:enumeration value="QUASI_COMP_CA_ACCRUAL"/>
+				<xs:enumeration value="QUASI_COMP_CLIENT_PAY_RECEIVE"/>
+				<xs:enumeration value="QUASI_COMP_SECURITY_TRADE"/>
+				<xs:enumeration value="STL_ADJUSTED_SETTLEMENT"/>
+				<xs:enumeration value="STL_CA_ACCRUAL"/>
+				<xs:enumeration value="STL_CLIENT_PAY_RECEIVE"/>
+				<xs:enumeration value="STL_SLR_TRADE"/>
+				<xs:enumeration value="STL_CLIENT_RECEIPT_ALLOC"/>
+				<xs:enumeration value="COMP_CLIENT_RECEIPT_ALLOC"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	
+	<xs:element name="AccountNo">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="15" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>		
+
+	<xs:element name="Currency">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="3" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	
+	<xs:element name="Amount">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+
+	<xs:element name="Description">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="200" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	
+	<xs:element name="Reason">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="ADJ"/>
+				<xs:enumeration value="AFO"/>
+				<xs:enumeration value="ALT"/>
+				<xs:enumeration value="BON"/>
+				<xs:enumeration value="BSP"/>
+				<xs:enumeration value="BYB"/>
+				<xs:enumeration value="CAL"/>
+				<xs:enumeration value="CAQ"/>
+				<xs:enumeration value="CH001"/>
+				<xs:enumeration value="CH005"/>
+				<xs:enumeration value="CH008"/>
+				<xs:enumeration value="CH015"/>
+				<xs:enumeration value="CH017"/>
+				<xs:enumeration value="CH028"/>
+				<xs:enumeration value="CH030"/>
+				<xs:enumeration value="CH032"/>
+				<xs:enumeration value="CH034"/>
+				<xs:enumeration value="CH038"/>
+				<xs:enumeration value="CH042"/>
+				<xs:enumeration value="CH050"/>
+				<xs:enumeration value="CH092"/>
+				<xs:enumeration value="CH108"/>
+				<xs:enumeration value="CH110"/>
+				<xs:enumeration value="CH252"/>
+				<xs:enumeration value="CH502"/>
+				<xs:enumeration value="CH522"/>
+				<xs:enumeration value="CH528"/>
+				<xs:enumeration value="CLIENT_ADJUSTMENT"/>
+				<xs:enumeration value="CNA"/>
+				<xs:enumeration value="CNR"/>
+				<xs:enumeration value="CNV"/>
+				<xs:enumeration value="CRI"/>
+				<xs:enumeration value="CSC"/>
+				<xs:enumeration value="DIS"/>
+				<xs:enumeration value="DRP"/>
+				<xs:enumeration value="DVM"/>
+				<xs:enumeration value="EXP"/>
+				<xs:enumeration value="FLT"/>
+				<xs:enumeration value="FOR"/>
+				<xs:enumeration value="IDA"/>
+				<xs:enumeration value="INT_CA_ADJUSTMENT"/>
+				<xs:enumeration value="MER"/>
+				<xs:enumeration value="NCN"/>
+				<xs:enumeration value="NRE"/>
+				<xs:enumeration value="OCN"/>
+				<xs:enumeration value="ODR"/>
+				<xs:enumeration value="OEX"/>
+				<xs:enumeration value="OLP"/>
+				<xs:enumeration value="OPT"/>
+				<xs:enumeration value="PLC"/>
+				<xs:enumeration value="PRI"/>
+				<xs:enumeration value="REC"/>
+				<xs:enumeration value="RED"/>
+				<xs:enumeration value="REV"/>
+				<xs:enumeration value="RHA"/>
+				<xs:enumeration value="RHE"/>
+				<xs:enumeration value="RHT"/>
+				<xs:enumeration value="SAR"/>
+				<xs:enumeration value="SCD"/>
+				<xs:enumeration value="SOA"/>
+				<xs:enumeration value="SPP"/>
+				<xs:enumeration value="STP"/>
+				<xs:enumeration value="TKA"/>
+				<xs:enumeration value="WAL"/>
+				<xs:enumeration value="WDL"/>
+				<xs:enumeration value="WEX"/>
+				<xs:enumeration value="WRL"/>
+				<xs:enumeration value="WUX"/>
+				<xs:enumeration value="DAILY MTM - LEPO"/>
+				<xs:enumeration value="PAYMENTS"/>
+				<xs:enumeration value="RECEIPTS"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+		
+	<xs:element name="SubAccountType">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="2"/>
+				<xs:enumeration value="10"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+</xs:schema>

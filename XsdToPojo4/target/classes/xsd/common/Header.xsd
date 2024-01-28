@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.nri.com/igv" xmlns="http://www.nri.com/igv" elementFormDefault="qualified">
+	<xs:element name="Header">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="CommunicationCode"/>
+				<xs:element ref="CreationTime"/>
+				<xs:element ref="MessageId"/>
+				<xs:element ref="OriginalMessageId" minOccurs="0"/>
+				<xs:element ref="MessageType"/>
+				<xs:element ref="RequestMessageId" minOccurs="0"/>
+				<xs:element ref="SenderSystemId" minOccurs="0"/>
+				<xs:element ref="SenderEnterpriseId"/>
+				<xs:element ref="RecipientSystemId" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Action">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="ENTRY"/>
+				<xs:enumeration value="AMEND"/>
+				<xs:enumeration value="CANCEL"/>
+				<xs:enumeration value="TRANSFER_IN"/>
+				<xs:enumeration value="TRANSFER_IN_CANCEL"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="CommunicationCode">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="REQUEST"/>
+				<xs:enumeration value="SUCCESS"/>
+				<xs:enumeration value="FAILURE"/>
+				<xs:enumeration value="PUSH"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="CreationTime" type="xs:string">
+		<xs:annotation>
+			<xs:documentation><![CDATA[Creation Time of the Message]]></xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="MessageType">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Client"/>
+				<xs:enumeration value="Order"/>
+				<xs:enumeration value="ContractNote"/>
+				<xs:enumeration value="SecurityMovement"/>
+				<xs:enumeration value="CashMovement"/>
+				<xs:enumeration value="Collateral"/>
+				<xs:enumeration value="OrderFeed"/>
+				<xs:enumeration value="ExecutionFeed"/>
+				<xs:enumeration value="HoldingTransfer"/>
+				<xs:enumeration value="Report"/>
+				<xs:enumeration value="SecurityMaster"/>
+				<xs:enumeration value="SettlementObligation"/>
+				<xs:enumeration value="SettlementCompletion"/>
+				<xs:enumeration value="MatchStatus"/>
+				<xs:enumeration value="CorporateActionEvent"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="MessageId" type="xs:string">
+		<xs:annotation>
+			<xs:documentation><![CDATA[An unique number to identity individual message]]></xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="OriginalMessageId" type="xs:string">
+		<xs:annotation>
+			<xs:documentation><![CDATA[ OriginalMessageId required incase in TV system 
+	           	there is any failure and it wants to resend the message ]]></xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="RecipientSystemId" type="xs:string"/>
+	<xs:element name="RequestMessageId" type="xs:string"/>
+	<xs:element name="SenderEnterpriseId" type="xs:string"/>
+	<xs:element name="SenderSystemId" type="xs:string"/>
+</xs:schema>

@@ -1,0 +1,54 @@
+{
+  "type" : "record",
+  "name" : "Message",
+  "namespace" : "com.ausiex.avro.cef",
+  "fields" : [ {
+    "name" : "body",
+    "type" : {
+      "type" : "record",
+      "name" : "Body",
+      "fields" : [ {
+        "name" : "accountNo",
+        "type" : "string"
+      }, {
+        "name" : "amount",
+        "type" : {
+          "type" : "string",
+          "java-class" : "java.math.BigDecimal"
+        }
+      }, {
+        "name" : "currency",
+        "type" : "string"
+      }, {
+        "name" : "description",
+        "type" : "string"
+      }, {
+        "name" : "movementBasis",
+        "type" : "string"
+      }, {
+        "name" : "movementDate",
+        "type" : {
+          "type" : "record",
+          "name" : "XMLGregorianCalendar",
+          "namespace" : "javax.xml.datatype",
+          "fields" : [ ]
+        }
+      }, {
+        "name" : "movementId",
+        "type" : "string"
+      }, {
+        "name" : "reason",
+        "type" : "string"
+      }, {
+        "name" : "subAccountType",
+        "type" : "string"
+      }, {
+        "name" : "transactionReferenceNo",
+        "type" : "string"
+      }, {
+        "name" : "transactionType",
+        "type" : "string"
+      } ]
+    }
+  } ]
+}

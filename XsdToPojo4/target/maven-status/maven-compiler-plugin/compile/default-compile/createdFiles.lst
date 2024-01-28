@@ -1,0 +1,6 @@
+com\ausiex\avro\cef\package-info.class
+com\ausiex\avro\cef\Body.class
+com\ausiex\avro\cef\Header.class
+com\ausiex\avro\cef\ObjectFactory.class
+com\ausiex\avro\cef\Footer.class
+com\ausiex\avro\cef\Message.class
